@@ -8,4 +8,6 @@ Repo to verify an Anyscale onboarding
 
 `anyscale init` to make this directory a project
 
-`python control.py`
+`python control.py` To create a session and run some code on Anyscale
+
+

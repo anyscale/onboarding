@@ -6,33 +6,34 @@ import numpy as np
 from compute import Fibs
 
 print("This demo connects to anyscale and computes fib sequences of 200 numbers serially and in different chatty ways")
-anyscale.session("minimal").connect()
+anyscale.session("onboard-test").connect()
 
-start = time.time()
-times = np.array([])
-times = np.append(times,time.time())
+class Ts:
+    def __init__(self):
+        self.times = np.array([time.time()])
+    def __call__(self):
+        self.times = np.append(self.times,time.time())
+        self.times[-2] = self.times[-1] - self.times[-2]
+    def __str__(self):
+        return str(self.times[:-1])
 
+ts = Ts()
 # iterate through a loop x times, running batches of size y
-def runner(times, x,y):
+def runner(x,y):
     r = Fibs.remote()
     for i in range(0,x):
         final = r.next_n.remote(y)
-    times = np.append(times,time.time())
-    return times
+    ts()
 
 print("Starting Run, generating one number with each invocation")
-times = runner(times, 200,1)
+runner(200,1)
 print("Starting Run, generating ten numbers with each invocation")
-times = runner(times, 20,10)
+runner(20,10)
 print("Starting Run, generating 100 numbers with each invocation")
-times = runner(times, 2,100)
+runner(2,100)
 print("Starting Run, generating all 200 numbers in one go")
-times = runner(times, 1,200)
+runner(1,200)
 
-times = times - start
-deltas = [times[x] - times[x-1] for x in range(1,len(times))]
-
-print(deltas)
-
+print(ts)
 
 
