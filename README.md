@@ -2,9 +2,9 @@
 
 Repo to verify an Anyscale onboarding
 
-`pip install -U https://s3-us-west-2.amazonaws.com/ray-wheels/master/63d77e0d4c63064ed0ee43adc5a2a71ccc16254a/ray-2.0.0.dev0-cp37-cp37m-macosx_10_13_intel.whl`
+`pip uninstall ray -y && pip install -U https://s3-us-west-2.amazonaws.com/ray-wheels/master/35b45a03cffbedcf5720157060276c9c41bb87c0/ray-2.0.0.dev0-cp37-cp37m-macosx_10_13_intel.whl` to ensure you have a pinned nightly
 
-`pip install anyscale`
+`pip install -U anyscale` to ensure you have the latest anyscale release
 
 `anyscale init` to make this directory a project
 
