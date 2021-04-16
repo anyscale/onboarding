@@ -8,6 +8,10 @@ Steps (for mac)
 
 * `pip install -U anyscale` to ensure you have the latest anyscale release
 
+* `anyscale cloud setup` to provision anyscale's access to your cloud provider.
+  * Provider (aws, gcp): aws
+  * Name: Pick any short name, like "mycloud"
+
 * `anyscale init` to turn this directory into an Anyscale project
 
 * `python driver.py` To create a session and run some code on Anyscale
