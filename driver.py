@@ -6,6 +6,7 @@ import numpy as np
 from compute import Fibs
 
 print("This demo connects to anyscale and computes fib sequences of 200 numbers serially and in different chatty ways")
+
 anyscale.session("onboard-test").connect()
 
 class Ts:
