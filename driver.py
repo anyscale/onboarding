@@ -1,41 +1,33 @@
 import ray
 import anyscale
-import time
-import numpy as np
 
-from compute import Fibs
+from compute import Fibs, TimeStamper
 
-print("This demo connects to anyscale and computes fib sequences of 200 numbers serially and in different chatty ways")
+print("This demo connectimestamper to anyscale and computes fib sequences of 200 numbers serially and in different chatty ways")
 
 #ray.init()
-anyscale.session("onboard-test").connect()
+anyscale.app_config("onboard:1").session("onboard-test").connect()
 
-class Ts:
-    def __init__(self):
-        self.times = np.array([time.time()])
-    def __call__(self):
-        self.times = np.append(self.times,time.time())
-        self.times[-2] = self.times[-1] - self.times[-2]
-    def __str__(self):
-        return str(self.times[:-1])
-
-ts = Ts()
+timestamper = TimeStamper()
 # iterate through a loop x times, running batches of size y
-def runner(x,y):
-    r = Fibs.remote()
-    for i in range(0,x):
-        final = r.next_n.remote(y)
-    ts()
+def get_next_nth_fib(n,batch_size):
+    fib_actor = Fibs.remote()
+    fibs = []
+    for i in range(0,n):
+        fibs.append(fib_actor.next_n.remote(batch_size))
+    result = [ray.get(x) for x in fibs]
+    timestamper()
+    return result
 
 print("Starting Run, generating one number with each invocation")
-runner(200,1)
+print(get_next_nth_fib(200,1))
 print("Starting Run, generating ten numbers with each invocation")
-runner(20,10)
+print(get_next_nth_fib(20,10))
 print("Starting Run, generating 100 numbers with each invocation")
-runner(2,100)
+print(get_next_nth_fib(2,100))
 print("Starting Run, generating all 200 numbers in one go")
-runner(1,200)
+print(get_next_nth_fib(1,200))
 
-print(ts)
+print(timestamper)
 
 

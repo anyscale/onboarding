@@ -1,4 +1,6 @@
 import ray
+import time
+import numpy as np
 
 # note this is still single-threaded because of reliance on internal state (?)
 @ray.remote
@@ -14,10 +16,20 @@ class Fibs():
         return c
 
     def next_n(self, n):
-        for i in range(1,n):
+        for i in range(0,n):
             self.next()
         return self.b
 
+
+# note - not a ray.remote
+class TimeStamper:
+    def __init__(self):
+        self.times = np.array([time.time()])
+    def __call__(self):
+        self.times = np.append(self.times,time.time())
+        self.times[-2] = self.times[-1] - self.times[-2]
+    def __str__(self):
+        return str(self.times[:-1])
 
 
 
