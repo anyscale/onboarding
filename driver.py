@@ -6,7 +6,7 @@ from compute import Fibs, TimeStamper
 print("This demo connectimestamper to anyscale and computes fib sequences of 200 numbers serially and in different chatty ways")
 
 #ray.init()
-anyscale.app_config("onboard:1").session("onboard-test").connect()
+anyscale.cloud("anyscale_default_cloud").app_config("onboard:1").session("onboard-test").connect()
 
 timestamper = TimeStamper()
 # iterate through a loop x times, running batches of size y
