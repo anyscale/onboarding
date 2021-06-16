@@ -17,17 +17,8 @@ users have a way of doing this already, so you may skip it.
 
 This section has the steps to install `anyscale` and `ray`, both of which are distributed as pip packages.
 
-* `pip install anyscale` to install anyscale (0.3.56)
-* Install a pinned nightly.  The first link is the one for Mac and Python 3.7.
-```
-pip install -U https://s3-us-west-2.amazonaws.com/ray-wheels/master/1d834bcbe33c7714913fa06c7a7392c29eb7d71d/ray-2.0.0.dev0-cp37-cp37m-macosx_10_13_intel.whl
-
-pip install -U https://s3-us-west-2.amazonaws.com/ray-wheels/master/1d834bcbe33c7714913fa06c7a7392c29eb7d71d/ray-2.0.0.dev0-cp38-cp38-macosx_10_13_x86_64.whl
-
-pip install -U https://s3-us-west-2.amazonaws.com/ray-wheels/master/1d834bcbe33c7714913fa06c7a7392c29eb7d71d/ray-2.0.0.dev0-cp37-cp37m-manylinux2014_x86_64.whl
-
-pip install -U https://s3-us-west-2.amazonaws.com/ray-wheels/master/1d834bcbe33c7714913fa06c7a7392c29eb7d71d/ray-2.0.0.dev0-cp38-cp38-manylinux2014_x86_64.whl
-```
+* `pip install anyscale` to install anyscale (0.4.3)
+* `pip install "ray[default]"` to install ray (1.4.0)
 
 ### Cloud Setup
 
@@ -45,16 +36,6 @@ You'll be prompted to enter:
 This command creates a project on Anyscale and ties it to this directory.
 
 * `anyscale init` to turn this directory into an Anyscale project
-
-### Build Config Creation
-
-Running this script uses the Anyscale SDK to create an App Config on Anyscale.  This App Config
-is a definition of an environment on Anyscale in which to run a distributed application.
-
-* `python build_app_config.py`
-
-Note: This command takes several minutes to complete.  Go to the anyscale UI to see your progress.
-If you have already run this command, then it will error out because the App Config already exists.
 
 ### Run the program
 
@@ -74,4 +55,4 @@ and raw power.
 
 
 
-Anyscale 0.3.56
+Anyscale 0.4.3
