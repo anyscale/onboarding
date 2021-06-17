@@ -1,7 +1,7 @@
 # onboarding
 
 Repo to verify an Anyscale onboarding.  This process changes frequently as our beta product evolves
-so check back frequently!
+so check back soon!
 
 ## Steps (for mac)
 
