@@ -7,10 +7,11 @@ print("This demo connects to anyscale and computes fib sequences of 200 numbers 
 
 # This command will use the environment variable RAY_ADDRESS to connect to a ray cluster
 # If the URL begins with "anyscale://" then your program uses an Anyscale cluster.
-ray.client().connect()
+#ray.client().connect()
+ray.client("anyscale://demo").connect()
 
 # The connection can also be expressed in code
-#ray.client("anyscale://cluster-1").cluster_compute("wildlife_cluster_compute").connect()
+#ray.client("anyscale://cluster-1").cluster_compute("anastasia_def").connect()
 
 
 timestamper = TimeStamper()
