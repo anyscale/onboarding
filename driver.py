@@ -35,5 +35,7 @@ def run_job():
     print(get_next_nth_fib(1,200))
 
     print(timestamper)
+    
+ray.get(run_job.remote())
 
 
