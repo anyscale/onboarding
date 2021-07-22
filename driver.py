@@ -12,8 +12,6 @@ ray.client().connect()
 # The connection can also be expressed in code
 #ray.client("anyscale://cluster-1").cluster_compute("anastasia_def").connect()
 
-
-timestamper = TimeStamper()
 # iterate through a loop x times, running batches of size y
 def get_next_nth_fib(n,batch_size):
     fib_actor = Fibs.remote()
@@ -24,15 +22,18 @@ def get_next_nth_fib(n,batch_size):
     timestamper()
     return result
 
-print("Starting Run, generating one number with each invocation")
-print(get_next_nth_fib(200,1))
-print("Starting Run, generating ten numbers with each invocation")
-print(get_next_nth_fib(20,10))
-print("Starting Run, generating 100 numbers with each invocation")
-print(get_next_nth_fib(2,100))
-print("Starting Run, generating all 200 numbers in one go")
-print(get_next_nth_fib(1,200))
+@ray.remote
+def run_job():
+    timestamper = TimeStamper()
+    print("Starting Run, generating one number with each invocation")
+    print(get_next_nth_fib(200,1))
+    print("Starting Run, generating ten numbers with each invocation")
+    print(get_next_nth_fib(20,10))
+    print("Starting Run, generating 100 numbers with each invocation")
+    print(get_next_nth_fib(2,100))
+    print("Starting Run, generating all 200 numbers in one go")
+    print(get_next_nth_fib(1,200))
 
-print(timestamper)
+    print(timestamper)
 
 
