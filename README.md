@@ -1,11 +1,11 @@
-# onboarding
+# Onboarding
 
 Repo to verify an Anyscale onboarding.  This process changes frequently as our beta product evolves
 so check back soon!
 
 ## Steps (for mac)
 
-### Environment.
+### Environment
 
 This section makes sure you have a clean working predictable python environment.  Advanced
 users have a way of doing this already, so you may skip it.
@@ -31,6 +31,11 @@ You'll be prompted to enter:
   * Provider (aws, gcp): aws
   * Name: Pick any short name, like "mycloud"
 
+### Anyscale Account Creation
+You should have recieved an invitation to create an account with Anyscale from your Admin. Follow the instructions in the email to create an account in your organization.
+
+Next, set up your Anyscale credentials by navigating to Your Profile > Credentials and running the command listed in your terminal.
+
 ### Project initialization
 
 This command creates a project on Anyscale and ties it to this directory.
@@ -39,7 +44,7 @@ This command creates a project on Anyscale and ties it to this directory.
 
 ### Run the program
 
-This section creates your anyscale compute cluster and then runs some code on it.
+This section creates your anyscale compute cluster and then runs some code on it. Start by cloning this github repo.
 The code that is actually run on Anyscale is contained in the `compute.py` source code file.
 
 * `RAY_ADDRESS=anyscale://my_cluster python driver.py` 
