@@ -20,6 +20,11 @@ This section has the steps to install `anyscale` and `ray`, both of which are di
 * `pip install anyscale` to install anyscale (0.4.4)
 * `pip install "ray[default]"` to install ray (1.4.0)
 
+### Anyscale Account Creation
+You should have recieved an invitation to create an account with Anyscale from your Admin. Follow the instructions in the email to create an account in your organization.
+
+Next, set up your Anyscale credentials by navigating to Your Profile > Credentials and running the command listed in your terminal.
+
 ### Cloud Setup
 
 This is a one-time command for your *organization*.  If your administrator has run this command, you don't need to.
@@ -30,11 +35,6 @@ You'll be prompted to enter:
 
   * Provider (aws, gcp): aws
   * Name: Pick any short name, like "mycloud"
-
-### Anyscale Account Creation
-You should have recieved an invitation to create an account with Anyscale from your Admin. Follow the instructions in the email to create an account in your organization.
-
-Next, set up your Anyscale credentials by navigating to Your Profile > Credentials and running the command listed in your terminal.
 
 ### Project initialization
 
