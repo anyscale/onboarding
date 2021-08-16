@@ -13,12 +13,6 @@ print("This demo connects to anyscale and computes fib sequences")
 os.environ["RAY_ADDRESS"]="anyscale://onboarding"
 ray.client().connect()
 
-# The connection can also be expressed in code
-#ray.client("anyscale://cluster-1").connect()
-# Depending on your cloud, you may need to specify a cluster_compute
-#ray.client("anyscale://alt-region").cluster_compute("alt-region").connect()
-
-
 N = 200
 print(f"Getting the {N}th fibonnaci number for you, a few times")
 obj = [run_job.remote(N) for i in range(5)]
