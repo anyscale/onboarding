@@ -24,12 +24,6 @@ You should have recieved an invitation to create an account with Anyscale from y
 
 Next, set up your Anyscale credentials by navigating to Your Profile > Credentials and running the command listed in your terminal.
 
-### Project initialization
-
-This command creates a project on Anyscale and ties it to this directory.
-
-* `anyscale init` to turn this directory into an Anyscale project
- 
 ### Cloud Setup
 
 This is a one-time command for your *organization*.  If your administrator has run this command, you don't need to.
@@ -41,10 +35,16 @@ You'll be prompted to enter:
   * Provider (aws, gcp): aws
   * Name: Pick any short name, like "mycloud"
 
+### Project initialization
+
+This command creates a project on Anyscale and ties it to this directory.
+
+* `anyscale init` to turn this directory into an Anyscale project
+ 
+
 ### Run the program
 
-This section creates your anyscale compute cluster and then runs some code on it. Start by cloning this github repo.
-The code that is actually run on Anyscale is contained in the `compute.py` source code file.
+This section creates your anyscale compute cluster and then runs some code on it. Start by cloning this github repo.  The code that is actually run on Anyscale is contained in the `compute.py` source code file.
 
 * `RAY_ADDRESS=anyscale://my_cluster python driver.py` 
 
@@ -53,8 +53,7 @@ see significant startup time.
  
 * `RAY_ADDRESS=anyscale://my_cluster python driver.py` 
 
-Thank you for onboarding and trying out our product.  We know what you'll appreciate its simplicity
-and raw power.
+Thank you for onboarding and trying out our product.  We know what you'll appreciate its simplicity and raw power.
 
 
 Anyscale 0.4.4

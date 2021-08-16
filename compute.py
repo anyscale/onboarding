@@ -32,6 +32,22 @@ class TimeStamper:
         return str(self.times[:-1])
 
 
+# iterate through a loop x times, running batches of size y
+@ray.remote
+def run_job(n):
+    timestamper = TimeStamper()
+
+    def get_next_nth_fib(batch_size):
+        fib_actor = Fibs.remote()
+        fibs = []
+        for i in range(0,n,batch_size):
+            fibs.append(fib_actor.next_n.remote(batch_size))
+        result = [ray.get(x) for x in fibs]
+        timestamper()
+        return result
+
+    get_next_nth_fib(n)
+    print(timestamper)
 
 
 
