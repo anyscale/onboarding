@@ -29,7 +29,7 @@ class TimeStamper:
         self.times = np.append(self.times,time.time())
         self.times[-2] = self.times[-1] - self.times[-2]
     def __str__(self):
-        return str(self.times[:-1])
+        return f"Time taken: {self.times[:-1]}"
 
 
 # iterate through a loop x times, running batches of size y
@@ -37,17 +37,15 @@ class TimeStamper:
 def run_job(n):
     timestamper = TimeStamper()
 
-    def get_next_nth_fib(batch_size):
-        fib_actor = Fibs.remote()
-        fibs = []
-        for i in range(0,n,batch_size):
-            fibs.append(fib_actor.next_n.remote(batch_size))
-        result = [ray.get(x) for x in fibs]
-        timestamper()
-        return result
+    fib_actor = Fibs.remote()
+    fibs = []
+    for i in range(0,n):
+        fibs.append(fib_actor.next.remote())
+    result = [ray.get(x) for x in fibs]
+    timestamper()
 
-    get_next_nth_fib(n)
     print(timestamper)
+    return result
 
 
 

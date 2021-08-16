@@ -10,7 +10,7 @@ print("This demo connects to anyscale and computes fib sequences")
 # to connect to a ray cluster.
 # If RAY_ADDRESS begins with "anyscale://" then your program 
 # uses an Anyscale cluster to run Ray.
-os.environ["RAY_ADDRESS"]="anyscale://cluster-2"
+os.environ["RAY_ADDRESS"]="anyscale://onboarding"
 ray.client().connect()
 
 # The connection can also be expressed in code
@@ -19,9 +19,9 @@ ray.client().connect()
 #ray.client("anyscale://alt-region").cluster_compute("alt-region").connect()
 
 
-N = 20000
-print("Getting the {N}th fibonnaci number for you, a few times")
-obj = run_job.remote(N)
+N = 200
+print(f"Getting the {N}th fibonnaci number for you, a few times")
+obj = [run_job.remote(N) for i in range(5)]
 ray.get(obj)
 
 

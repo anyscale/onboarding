@@ -8,7 +8,7 @@ Repo to verify an Anyscale onboarding.  This process changes frequently as our b
 
 This section makes sure you have a clean working predictable python environment.  Advanced users have a way of doing this already, so you may skip it.
 
-* `conda create -n onboarding python=3.8 pip`
+* `conda create -n onboarding python=3.7 pip`
 * `conda activate onboarding`
 
 ### Python clients
@@ -56,4 +56,4 @@ see significant startup time.
 Thank you for onboarding and trying out our product.  We know what you'll appreciate its simplicity and raw power.
 
 
-Anyscale 0.4.4
+Anyscale 0.4.16
