@@ -16,7 +16,7 @@ This section makes sure you have a clean working predictable python environment.
 This section has the steps to install `anyscale` and `ray`, both of which are distributed as pip packages.
 
 * `pip install anyscale -U` to install the latest version of anyscale.
-* `pip install "ray[default]==1.5.2"` to install ray (1.5.2).  We recommend using an explicit version of Ray.
+* `pip install "ray[default]==1.6.0"` to install ray (1.6.0).  We recommend using an explicit version of Ray.
 
 ### Anyscale Account Creation
 
@@ -56,4 +56,4 @@ see significant startup time.
 Thank you for onboarding and trying out our product.  We know what you'll appreciate its simplicity and raw power.
 
 
-Anyscale 0.4.17
+Anyscale 0.4.18
