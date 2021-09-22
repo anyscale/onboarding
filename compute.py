@@ -2,7 +2,6 @@ import ray
 import time
 import numpy as np
 
-# note this is still single-threaded because of reliance on internal state (?)
 @ray.remote
 class Fibs():
     def __init__(self, n=1):

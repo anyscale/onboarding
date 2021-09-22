@@ -12,9 +12,11 @@ print("This demo connects to anyscale and computes fib sequences")
 # uses an Anyscale cluster to run Ray.
 ray.init()
 
-N = 200
+N = 2000
 print(f"Getting the {N}th fibonnaci number for you, a few times")
-ray.get([run_job.remote(N) for i in range(5)])
 
+objs = [run_job.remote(N) for i in range(10)]
+
+return_vals = ray.get(objs)
 
 
